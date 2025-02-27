@@ -8,5 +8,99 @@
 
 body {
     font-family: Arial, Helvetica, sans-serif;
-    background-color: #565454;
+    background-color: #cff9f7;
+    justify-items: center;
+}
+
+h1 {
+    margin: 20px;
+    color: #0b3737;
+}
+
+.to-do-list-device {
+    background-color: #24b3b3;
+    margin: 20px;
+    min-width: 500px;
+    padding: 30px 20px;
+    justify-items: center;
+    border: 2px solid #e1ec12;
+}
+
+.edit-area {
+    padding: 10px;
+    border: 1px solid transparent;
+    background-color: #1c8d8d;
+}
+
+.display-area {
+    width: 350px;
+    min-height: 200px;
+    border: #0b3737;
+    padding: 20px;
+}
+
+.edit-area input {
+    padding: 5px 10px;
+    min-width: 350px;
+    border-radius: 5px;
+    border: 1px solid transparent;
+}
+
+.edit-area button {
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: 1px solid transparent;
+    color: #0b3737;
+    background-color: #e1ec12;
+    font-weight: 600;
+}
+
+.edit-area button:hover {
+    cursor: pointer;
+    border: 1px solid #000;
+}
+
+.display-area {
+    display: flex;
+    flex-direction: column;
+    min-width: 450px;
+    background-color: #fbfbfb;
+    margin: 10px;
+}
+
+.task {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 10px;
+    border: 1px solid #24b3b3;
+    margin-bottom: 5px;
+}
+
+.task-text {
+    flex-grow: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    color: #000000;
+}
+
+.task-edit,
+.task-done {
+    cursor: pointer;
+    width: 50px;
+    height: 30px;
+    padding: 5px;
+    font-size: 0.9rem;
+    border-radius: 5px;
+    border: 1px solid transparent;
+    margin: 5px;
+}
+
+.task-edit {
+    background-color: rgb(244, 185, 102);
+}
+
+.task-done {
+    background-color: #8bd679;
 }
