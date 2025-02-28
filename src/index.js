@@ -12,22 +12,16 @@ const dom = {
 
 let tasks = [];
 
+// Button Events
+
 dom.submitButton.addEventListener('click', () => {
-    const taskInput = dom.input;
+    clickSubmit();
+});
 
-    // Add input to tasks[]
-
-    if (taskInput !== '') {
-        tasks.push(taskInput.value);
+dom.input.addEventListener('keydown', (event) => {
+    if (event.key === 'Enter') {
+        clickSubmit();
     }
-
-    // Empty the input box
-
-    dom.input.value = '';
-
-    // Update the display area
-
-    updateDisplay();
 });
 
 //FUNCTIONS
@@ -39,7 +33,7 @@ function updateDisplay() {
 
     // Go through the tasks[] to load all elements
 
-    tasks.forEach((task) => {
+    tasks.forEach((task, index) => {
         const taskElement = document.createElement('div');
 
         taskElement.classList.add('task');
@@ -52,8 +46,44 @@ function updateDisplay() {
       <button class="task-done">Done</button>
     `;
 
+        //Make the task elements JavaScript Object
+
+        const editButton = taskElement.querySelector('.task-edit');
+        const doneButton = taskElement.querySelector('.task-done');
+
+        // Task buttons event
+
+        editButton.addEventListener('click', () => {
+            dom.input.value = tasks[index];
+            tasks.splice(index, 1);
+            updateDisplay();
+        });
+
+        doneButton.addEventListener('click', () => {
+            tasks.splice(index, 1);
+            updateDisplay();
+        });
+
         //Add each element to the display area
 
         dom.displayArea.append(taskElement);
     });
+}
+
+function clickSubmit() {
+    const taskInput = dom.input;
+
+    // Add input to tasks[]
+
+    if (taskInput.value.trim() !== '') {
+        tasks.push(taskInput.value);
+    }
+
+    // Empty the input box
+
+    dom.input.value = '';
+
+    // Update the display area
+
+    updateDisplay();
 }

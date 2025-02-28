@@ -73,15 +73,13 @@ h1 {
     justify-content: space-between;
     align-items: center;
     padding: 5px 10px;
-    border: 1px solid #24b3b3;
+    border-bottom: 1px solid #24b3b3;
     margin-bottom: 5px;
 }
 
 .task-text {
     flex-grow: 1;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
+    overflow: auto;
     color: #000000;
 }
 
@@ -98,7 +96,7 @@ h1 {
 }
 
 .task-edit {
-    background-color: rgb(244, 185, 102);
+    background-color: rgb(222, 222, 222);
 }
 
 .task-done {
